@@ -1,0 +1,75 @@
+.field {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    position: relative;
+    background-color: var(--forms-background);
+    transition-duration: .1s;
+    &:hover {
+        background-color: var(--forms-background-hover);
+    }
+    &.focussed input {
+        padding: calc(var(--gap)*2.5) calc(var(--gap)*1.5) var(--gap) calc(var(--gap)*1);
+        &::-webkit-input-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &::-moz-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &:-ms-input-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &:-moz-placeholder {
+            color: var(--forms-background-hover);
+        }
+    }
+    &.focussed input+label {
+        top: calc(var(--gap)/2);
+        opacity: 1;
+        color: var(--color-highlight);
+    }
+    &.locked {
+        pointer-events: none;
+    }
+    & input {
+        width: 100%;
+        height: 50px;
+        position: relative;
+        padding: 0px var(--gap);
+        border: none;
+        font-weight: 400;
+        line-height: normal;
+        background-color: transparent;
+        color: var(--color-primary);
+        -webkit-appearance: none;
+        transition: none;
+    }
+    & input::-webkit-input-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input::-moz-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input:-ms-input-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input:-moz-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input+label {
+        position: absolute;
+        top: calc(var(--gap)*2.5);
+        left: calc(var(--gap)*1);
+        font-weight: 600;
+        color: var(--color-primary);
+        opacity: 0;
+        pointer-events: none;
+    }
+    & input+label.error {
+        color: var(--color-danger);
+    }
+}

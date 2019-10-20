@@ -11,6 +11,13 @@ const light = mergeThemes(Object.assign({}, base), {
   sidebar: {
     background: "#2e333b",
     color: "#ffffff"
+  },
+  card: {
+    background: "#ffffff"
+  },
+  forms: {
+    background: "#f9f9f9",
+    "background-hover": "#f4f4f4"
   }
 });
 

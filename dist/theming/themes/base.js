@@ -19,9 +19,7 @@ const base = {
   },
   topbar: {
     height: "50px"
-  },
-  card: {
-    background: "#ffffff"
   }
+
 };
 export default base;

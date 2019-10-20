@@ -10,17 +10,30 @@ import { TopBar } from "../Topbar";
 import { Area } from "../Layout";
 import { Button } from "../Button";
 class SidebarItem extends Component {
-
   constructor(props) {
     super(props);
+    this.state = {};
     this.state.open = this.props.open || false;
+    this.state.childrenLength = (this.props.children || []).length;
     this.state.path = this.props.parentPath ? `${this.props.parentPath}/${this.props.path}` : `/${this.props.path}`;
+    this.nestedChildOpen = this.nestedChildOpen.bind(this);
   }
   toggleItem() {
-    this.setState({ open: !this.state.open });
+    this.setState(state => {
+      if (this.props.nestedChildOpen) {
+        this.props.nestedChildOpen(!state.open ? state.childrenLength : 0);
+      }
+      return {
+        open: !state.open,
+        height: `${40 + (!state.open ? state.childrenLength * 40 : 0)}px`
+      };
+    });
   }
-  getHeight() {
-    return 40 + (this.state.open ? this.props.children.length * 40 : 0) + "px";
+  nestedChildOpen(childrenLength) {
+    this.setState(state => ({
+      childrenLength: state.childrenLength + childrenLength,
+      height: `${40 + (state.open ? (state.childrenLength + childrenLength) * 40 : 0)}px`
+    }));
   }
   render() {
     if (!this.props.children) {
@@ -32,11 +45,10 @@ class SidebarItem extends Component {
           className: "sidebarItemLink",
           to: this.state.path
         },
-        React.createElement(FontAwesomeIcon, {
+        this.props.icon ? React.createElement(FontAwesomeIcon, {
           className: "icon-start",
           icon: this.props.icon
-        }),
-        " ",
+        }) : React.createElement(React.Fragment, null),
         React.createElement(
           "span",
           { className: "title" },
@@ -52,19 +64,17 @@ class SidebarItem extends Component {
         "div",
         {
           className: classNames,
-          onClick: () => this.toggleItem(),
           style: {
-            height: this.getHeight()
+            height: this.state.height
           }
         },
         React.createElement(
           "div",
-          { className: "sidebarItemLink" },
-          React.createElement(FontAwesomeIcon, {
+          { className: "sidebarItemLink", onClick: () => this.toggleItem() },
+          this.props.icon ? React.createElement(FontAwesomeIcon, {
             className: "icon-start",
             icon: this.props.icon
-          }),
-          " ",
+          }) : React.createElement(React.Fragment, null),
           React.createElement(
             "span",
             { className: "title" },
@@ -81,7 +91,8 @@ class SidebarItem extends Component {
           this.props.children.map((child, i) => React.createElement(SidebarItem, _extends({
             key: child.title + i
           }, child, {
-            parentPath: this.state.path
+            parentPath: this.state.path,
+            nestedChildOpen: this.nestedChildOpen
           })))
         )
       );
@@ -94,18 +105,21 @@ SidebarItem.propTypes = {
   path: PropTypes.string,
   children: PropTypes.array,
   parentPath: PropTypes.string,
-  open: PropTypes.bool
+  open: PropTypes.bool,
+  nestedChildOpen: PropTypes.func
 };
 
 export class Sidebar extends Component {
-
   constructor(props) {
     super(props);
+    this.state = {};
     this.ref = React.createRef();
   }
   componentDidMount() {}
   togleClass() {
-    this.setState({ class: window.getComputedStyle(this.ref.current).width === '45px' ? "max" : "min" });
+    this.setState({
+      class: window.getComputedStyle(this.ref.current).width === "45px" ? "max" : "min"
+    });
   }
 
   render() {

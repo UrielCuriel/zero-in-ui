@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import classnames from "classnames";
 import "./Button.scss";
 export class Button extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const classNames = classnames({
       button: true,

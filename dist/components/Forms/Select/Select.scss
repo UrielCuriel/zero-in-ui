@@ -1,0 +1,16 @@
+.select-body {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+}
+
+.select {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    background: var(--forms-background);
+    cursor: pointer;
+    padding-left: var(--gap);
+}
