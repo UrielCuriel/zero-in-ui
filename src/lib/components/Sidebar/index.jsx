@@ -51,7 +51,7 @@ class SidebarItem extends Component {
               icon={this.props.icon}
             ></FontAwesomeIcon>
           ) : (
-            <></>
+            <React.Fragment></React.Fragment>
           )}
           <span className="title">{this.props.title}</span>
         </NavLink>
@@ -75,7 +75,7 @@ class SidebarItem extends Component {
                 icon={this.props.icon}
               ></FontAwesomeIcon>
             ) : (
-              <></>
+              <React.Fragment></React.Fragment>
             )}
             <span className="title">{this.props.title}</span>
             <FontAwesomeIcon

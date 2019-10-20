@@ -49,7 +49,7 @@ class SelectBody extends Component {
         onSelect: this.onSelect.bind(this)
       })
     );
-    return <>{children}</>;
+    return <React.Fragment>{children}</React.Fragment>;
   }
 }
 

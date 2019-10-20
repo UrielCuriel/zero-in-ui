@@ -16,13 +16,12 @@ export default class Input extends Component {
     };
   }
 
-
-  onChange = event => {
+  onChange(event) {
     const { id } = this.props;
     const value = event.target.value;
     this.setState({ value, error: "" });
     return this.props.onChange(id, value);
-  };
+  }
 
   render() {
     // const fieldClassName = `field ${(this.locked ? this.focussed : this.focussed || this.value) && 'focussed'} ${this.locked && !this.focussed && 'locked'}`;
@@ -31,7 +30,7 @@ export default class Input extends Component {
       focussed: this.state.locked
         ? this.state.focussed
         : this.state.focussed || this.state.value,
-      locked: this.state.locked 
+      locked: this.state.locked
     });
     return (
       <div className={fieldClassName}>
@@ -66,7 +65,7 @@ Input.propTypes = {
   error: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
-  required:PropTypes.bool,
+  required: PropTypes.bool
 };
 Input.defaultProps = {
   locked: false,
