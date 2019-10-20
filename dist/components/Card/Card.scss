@@ -1,0 +1,11 @@
+.card {
+    display: grid;
+    grid-template-areas: "card-header" "card-body" "card-footer";
+    row-gap: var(--gap);
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--card-background);
+    margin: var(--gap);
+    padding: var(--gap);
+    width: calc(100% - var(--gap) * 2);
+    height: calc(100% - var(--gap) * 2);
+}

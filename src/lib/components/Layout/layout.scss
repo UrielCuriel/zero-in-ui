@@ -1,0 +1,15 @@
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.layout {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-auto-flow: column;
+    .container {
+        padding-top: var(--gap);
+    }
+}
