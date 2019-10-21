@@ -4,8 +4,11 @@
     "private": false,
     "author": {
         "email": "urielcuriel@outlook.com",
-        "name": "Uriel Curiel",
-        "url": "https://urielcuriel.com"
+        "name": "Uriel Curiel"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/UrielCuriel/zero-in-ui.git"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.25",
