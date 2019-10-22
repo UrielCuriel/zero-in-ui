@@ -1,5 +1,5 @@
 .button {
-    padding: calc(var(--gap)/2);
+    padding: calc(var(--gap) / 2);
     color: var(--color-primary);
     min-width: 30px;
     height: 30px;
@@ -8,9 +8,15 @@
     overflow: hidden;
     justify-items: center;
     align-items: center;
+    justify-content: center;
+    align-content: center;
     &.icon-only {
         width: 30px;
         border-radius: 100%;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
     &:hover {
         color: white;
