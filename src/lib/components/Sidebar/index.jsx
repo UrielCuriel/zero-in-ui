@@ -39,22 +39,24 @@ class SidebarItem extends Component {
   render() {
     if (!this.props.children) {
       return (
-        <NavLink
-          activeClassName="active"
-          exact
-          className="sidebarItemLink"
-          to={this.state.path}
-        >
-          {this.props.icon ? (
-            <FontAwesomeIcon
-              className="icon-start"
-              icon={this.props.icon}
-            ></FontAwesomeIcon>
-          ) : (
-            <React.Fragment></React.Fragment>
-          )}
-          <span className="title">{this.props.title}</span>
-        </NavLink>
+        <div className="sidebarItemLink">
+          <NavLink
+            activeClassName="active"
+            className="inner"
+            exact
+            to={this.state.path}
+          >
+            {this.props.icon ? (
+              <FontAwesomeIcon
+                className="icon-start"
+                icon={this.props.icon}
+              ></FontAwesomeIcon>
+            ) : (
+              <React.Fragment></React.Fragment>
+            )}
+            <span className="title">{this.props.title}</span>
+          </NavLink>
+        </div>
       );
     } else {
       const classNames = classnames({
@@ -69,19 +71,21 @@ class SidebarItem extends Component {
           }}
         >
           <div className="sidebarItemLink" onClick={() => this.toggleItem()}>
-            {this.props.icon ? (
+            <span className="inner">
+              {this.props.icon ? (
+                <FontAwesomeIcon
+                  className="icon-start"
+                  icon={this.props.icon}
+                ></FontAwesomeIcon>
+              ) : (
+                <React.Fragment></React.Fragment>
+              )}
+              <span className="title">{this.props.title}</span>
               <FontAwesomeIcon
-                className="icon-start"
-                icon={this.props.icon}
+                className="icon-end"
+                icon="chevron-right"
               ></FontAwesomeIcon>
-            ) : (
-              <React.Fragment></React.Fragment>
-            )}
-            <span className="title">{this.props.title}</span>
-            <FontAwesomeIcon
-              className="icon-end"
-              icon="chevron-right"
-            ></FontAwesomeIcon>
+            </span>
           </div>
           <div className="sidebarItemChildren">
             {this.props.children.map((child, i) => (

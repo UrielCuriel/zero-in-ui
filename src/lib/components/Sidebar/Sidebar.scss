@@ -27,36 +27,55 @@ $breakpoints: ( 'phone': 320px, 'tablet': 768px, 'desktop': 1024px);
     width: 240px;
     height: var(--sidebar-item-height);
     overflow: hidden;
+    background-color: var(--sidebar-background);
+    // position: relative;
     &.open {
-        >.sidebarItemLink .icon-end {
-            transform: rotate(90deg);
+        >.sidebarItemLink {
+            .icon-end {
+                transform: rotate(90deg);
+            }
         }
     }
     &Link {
-        display: grid;
-        align-items: center;
-        grid-auto-flow: column;
-        justify-content: space-between;
-        grid-template-areas: "icon-start title icon-end";
-        grid-template-columns: auto 1fr auto;
-        column-gap: calc(var(--gap) * 1.5);
-        grid-template-rows: var(--sidebar-item-height);
-        padding-right: var(--gap);
-        font-weight: 400;
-        color: var(--sidebar-color);
-        .icon-start {
-            margin-left: calc(var(--gap) * 1.5);
-            grid-area: icon-start;
-        }
-        .title {
-            grid-area: title;
-        }
-        .icon-end {
-            grid-area: icon-end;
-        }
-        &:hover,
-        &.active {
-            color: var(--color-highlight) !important;
+        width: 240px;
+        height: 40px;
+        background-color: var(--sidebar-background);
+        .inner {
+            width: 240px;
+            display: grid;
+            align-items: center;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            grid-template-areas: "icon-start title icon-end";
+            grid-template-columns: 45px 1fr auto;
+            column-gap: calc(var(--gap) * 1.5);
+            grid-template-rows: var(--sidebar-item-height);
+            padding-right: var(--gap);
+            font-weight: 400;
+            color: var(--sidebar-color);
+            position: relative;
+            background-color: var(--sidebar-background);
+            .icon-start {
+                margin-left: calc(var(--gap) * 1.5);
+                grid-area: icon-start;
+                width: 20px;
+                height: 20px;
+            }
+            .title {
+                grid-area: title;
+            }
+            .icon-end {
+                grid-area: icon-end;
+                width: 20px;
+                height: 20px;
+            }
+            &:hover,
+            &.active {
+                color: var(--color-highlight) !important;
+            }
+            &:hover {
+                position: absolute;
+            }
         }
     }
 }
