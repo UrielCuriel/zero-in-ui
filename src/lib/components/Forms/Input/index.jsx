@@ -39,7 +39,7 @@ export default class Input extends Component {
           type={this.state.type}
           value={this.state.value}
           placeholder={this.state.label}
-          onChange={()=>this.onChange()}
+          onChange={(event)=>this.onChange(event)}
           onFocus={() =>
             !this.state.locked && this.setState({ focussed: true })
           }

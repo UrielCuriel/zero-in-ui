@@ -4,6 +4,7 @@ import { Area } from "../lib/components/Layout";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Input from "../lib/components/Forms/Input";
 import Select, { SelectOption } from "../lib/components/Forms/Select";
+import Checkbox from "../lib/components/Forms/Checkbox";
 const Forms = () => {
   let match = useRouteMatch();
   return (
@@ -35,6 +36,7 @@ const InputPage = () => {
         <SelectOption value={2}>Option 2</SelectOption>
         <SelectOption value={3}>Option 3</SelectOption>
       </Select>
+      <Checkbox onChange={(value)=>console.log(value)} label="checkbox"></Checkbox>
     </>
   );
 };
