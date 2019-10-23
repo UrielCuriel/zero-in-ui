@@ -1,0 +1,86 @@
+.field {
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    transition-duration: .02s;
+    &.focussed input {
+        &::-webkit-input-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &::-moz-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &:-ms-input-placeholder {
+            color: var(--forms-background-hover);
+        }
+        &:-moz-placeholder {
+            color: var(--forms-background-hover);
+        }
+    }
+    &.focussed input+label {
+        top: calc(var(--gap)/2);
+        left: var(--gap);
+        opacity: 1;
+        color: var(--color-highlight);
+        transition-duration: .1s;
+        transition-timing-function: linear;
+    }
+    &.locked {
+        pointer-events: none;
+    }
+    & input {
+        margin: calc(var(--gap)*2.5) 0 0 0;
+        width: 100%;
+        height: 30px;
+        position: relative;
+        padding: calc(var(--gap)/2) var(--gap);
+        border: none;
+        font-weight: 400;
+        line-height: normal;
+        color: var(--color-primary);
+        -webkit-appearance: none;
+        transition: none;
+        background-color: var(--forms-background);
+        &:hover {
+            background-color: var(--forms-background-hover);
+        }
+    }
+    & input::-webkit-input-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input::-moz-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input:-ms-input-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input:-moz-placeholder {
+        color: var(--color-primary);
+        opacity: .8;
+    }
+    & input+label {
+        position: absolute;
+        top: calc(var(--gap)*3);
+        left: var(--gap);
+        font-weight: 600;
+        color: var(--color-primary);
+        opacity: 0;
+        pointer-events: none;
+        transition-duration: 0.1s;
+        transition-timing-function: linear;
+    }
+    & input+label.error {
+        color: var(--color-danger);
+    }
+    &.hideLabel {
+        label {
+            visibility: hidden !important;
+        }
+        input {
+            margin: 0;
+        }
+    }
+}

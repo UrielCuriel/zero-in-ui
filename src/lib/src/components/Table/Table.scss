@@ -1,0 +1,15 @@
+.table {
+    display: grid;
+    align-content: center;
+    grid-template-rows: repeat(auto-fill, 40px);
+    .column {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        border-bottom: 1px dashed var(--color-primary);
+    }
+    .column,
+    .header {
+        padding-right: var(--gap);
+    }
+}
