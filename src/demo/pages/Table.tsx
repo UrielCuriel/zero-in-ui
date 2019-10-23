@@ -1,7 +1,6 @@
 import * as React from "react";
 import Table from "../../lib/src/components/Table";
 import { TableSettings } from "../../lib/src/components/Table/source";
-import Checkbox from "../../lib/src/components/Forms/Checkbox";
 
 const data = [
   {

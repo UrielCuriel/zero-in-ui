@@ -1,7 +1,7 @@
 {
     "name": "zero-in-ui",
-    "version": "0.2.0",
-    "main": "build/index.js",
+    "version": "0.2.2",
+    "main": "build",
     "scripts": {
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
