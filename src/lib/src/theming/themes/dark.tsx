@@ -1,6 +1,6 @@
 import { mergeThemes } from "..";
 import base from "./base";
-export const dark = mergeThemes(Object.assign({}, base),{
+export const dark = mergeThemes(Object.assign({}, base), {
   color: {
     primary: "#f2f2f2ff",
     background: "#2e333bff",
@@ -14,8 +14,10 @@ export const dark = mergeThemes(Object.assign({}, base),{
     background: "#484f5c"
   },
   forms: {
-    input: {
-      background: "#ffffff"
+    background: "#2e333bff",
+    "background-hover": "#38404d",
+    select: {
+      background: "#2e333bff"
     }
   }
 });

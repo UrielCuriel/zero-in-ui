@@ -1,9 +1,14 @@
 import * as React from "react";
-import { TableSettings, Column } from "../source";
+import { TableSettings, Column, Action } from "../source";
 import { getDeepObjectValue } from "../../../Utils";
+import { Button } from "../../Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Checkbox from "../../Forms/Checkbox";
+import Select, { SelectOption } from "../../Forms/Select";
 
 export type TableRowProps<T> = {
   item: T;
+  onAction?(action: Action<T>, data: T);
   settings: TableSettings<T>;
 };
 
@@ -45,24 +50,66 @@ class TableRow<T> extends React.Component<TableRowProps<T>, TableRowState<T>> {
     super(props);
     this.state = { ...props, columns: Object.entries(props.settings.columns) };
   }
+
+  getRender(key, col: Column<T, keyof T>) {
+    const value = col.format
+      ? this.format(
+          col.valuePrepareFunction
+            ? col.valuePrepareFunction(getDeepObjectValue(key, this.state.item))
+            : getDeepObjectValue(key, this.state.item),
+          col.format,
+          col.formatOptions
+        )
+      : col.valuePrepareFunction
+      ? col.valuePrepareFunction(getDeepObjectValue(key, this.state.item))
+      : getDeepObjectValue(key, this.state.item);
+    switch (col.type || "text") {
+      case "text":
+        return <span>{value}</span>;
+      case "checkbox":
+        return <Checkbox checked={value} locked={true} />;
+      case "list":
+        return (
+          <Select value={value} locked={true}>
+            {col.editor.config.list.map(option => (
+              <SelectOption value={option.value}>{option.title}</SelectOption>
+            ))}
+          </Select>
+        );
+      default:
+        return <React.Fragment>{value}</React.Fragment>;
+    }
+  }
   render() {
-    return this.state.columns.map(([key, col]) => (
-      <div className="column" style={{ justifyContent: col.align || "left" }}>
-        {col.format
-          ? this.format(
-              col.valuePrepareFunction
-                ? col.valuePrepareFunction(
-                    getDeepObjectValue(key, this.state.item)
-                  )
-                : getDeepObjectValue(key, this.state.item),
-              col.format,
-              col.formatOptions
-            )
-          : col.valuePrepareFunction
-          ? col.valuePrepareFunction(getDeepObjectValue(key, this.state.item))
-          : getDeepObjectValue(key, this.state.item)}
-      </div>
-    ));
+    return (
+      <React.Fragment>
+        <div className="column column-actions">
+          {this.state.settings.actions
+            .filter(a => a.type === "row")
+            .map(action => (
+              <Button
+                key={`action-${action.name}`}
+                iconOnly={!action.title}
+                button={{
+                  onClick: () => this.props.onAction(action, this.state.item)
+                }}
+              >
+                <FontAwesomeIcon icon={action.icon}></FontAwesomeIcon>{" "}
+                {action.title}
+              </Button>
+            ))}
+        </div>
+        {this.state.columns.map(([key, col]) => (
+          <div
+            className="column"
+            key={`view-${key}-${getDeepObjectValue(key, this.state.item)}`}
+            style={{ justifyContent: col.align || "left" }}
+          >
+            {this.getRender(key, col)}
+          </div>
+        ))}
+      </React.Fragment>
+    );
   }
 }
 

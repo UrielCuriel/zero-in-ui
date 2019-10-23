@@ -8,6 +8,12 @@
     padding-left: var(--gap);
     position: relative;
     overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--forms-background);
+    &:hover {
+        border-color: var(--color-highlight);
+    }
     &.locked {
         pointer-events: none;
     }
@@ -27,13 +33,7 @@
     &-container {
         width: 500px;
         height: auto;
-        border-style: solid;
-        border-width: 1px;
         overflow-x: hidden;
-        border-color: var(--forms-background);
-        &:hover {
-            border-color: var(--color-highlight);
-        }
     }
     &-option {
         width: inherit;
@@ -43,16 +43,24 @@
         padding-left: var(--gap);
         align-items: center;
         border-bottom: 1px dashed transparent;
+        border-left: 1px solid var(--forms-background);
+        border-right: 1px solid var(--forms-background);
         &:not(:last-child) {
             border-bottom-color: var(--color-primary);
         }
+        &:last-child {
+            border-bottom: 1px solid var(--forms-background);
+        }
         cursor: pointer;
         &.locked {
-            color: var(--forms-background);
+            color: var(--color-mutted);
             pointer-events: none;
         }
         &:hover {
             color: var(--color-highlight);
         }
+    }
+    input {
+        border: none;
     }
 }

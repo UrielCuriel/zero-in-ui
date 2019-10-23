@@ -1,16 +1,11 @@
 const base = {
   gap: "10px",
-  screen: {
-    sm: { min: "576px" },
-    md: { min: "768px" },
-    lg: { min: "992px" },
-    xl: { min: "1200px" }
-  },
   color: {
     success: "green",
     info: "blue",
     warning: "yellow",
-    danger: "red"
+    danger: "red",
+    mutted: "#e3e3e3"
   },
   sidebar: {
     item: {

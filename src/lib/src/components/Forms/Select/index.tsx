@@ -149,6 +149,7 @@ class Select extends React.Component<SelectProps, SelectState> {
       };
     });
   }
+  
   render() {
     return (
       <div
@@ -170,7 +171,7 @@ class Select extends React.Component<SelectProps, SelectState> {
         </div>
         <SelectBody
           style={{
-            height: `${this.state.open ? this.props.children.length * 30 : 0}px`
+            height: `${this.state.open ? this.state.children.length * 30 : 0}px`
           }}
           selected={this.props.value}
           onSelect={(key, label) => this.onSelect(key, label)}

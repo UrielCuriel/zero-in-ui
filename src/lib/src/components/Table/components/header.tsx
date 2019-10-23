@@ -47,7 +47,6 @@ class TableHeader<T> extends React.Component<
   }
   getOrder(key): React.ReactElement {
     let orderKey = this.state.orderBy.find(o => o.includes(key));
-    console.log(orderKey);
     const icon = orderKey
       ? orderKey.startsWith("-")
         ? "chevron-down"
@@ -62,8 +61,10 @@ class TableHeader<T> extends React.Component<
   render() {
     return (
       <React.Fragment>
+        <div className="column-actions"></div>
         {this.state.columns.map(([k, v]) => (
           <div
+          key={`header-${k}`}
             className="header"
             onClick={() => this.orderBy(v.sortObject || k)}
             onDoubleClick={() => this.removeOrder(v.sortObject || k)}

@@ -36,12 +36,12 @@ const InputPage = () => {
         onSelect={value => console.log(value)}
         placeholder="Select"
       >
-        <SelectOption value={1}>Option 1</SelectOption>
+        <SelectOption value={1} locked>Option 1</SelectOption>
         <SelectOption value={2}>Option 2</SelectOption>
         <SelectOption value={3}>Option 3</SelectOption>
         <SelectOption value="1">option 1</SelectOption>
         <SelectOption value="2">option 2</SelectOption>
-        <SelectOption value="3">option 3</SelectOption>
+        <SelectOption value="3" locked>option 3</SelectOption>
         <SelectOption value="4">option 4</SelectOption>
         <SelectOption value="5">option 5</SelectOption>
       </Select>

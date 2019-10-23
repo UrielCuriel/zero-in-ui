@@ -146,21 +146,21 @@ const data = [
   }
 ];
 
-export interface Name {
+export type Name = {
   first: string;
   last: string;
-}
+};
 
 export interface User {
   _id: string;
   isActive: boolean;
-  name: Name;
+  name: Name | string;
   company: string;
   email: string;
   phone: string;
-  birthday: Date;
-  balance: number;
-  tags: string[];
+  birthday: Date | string;
+  balance: number | string;
+  tags: string[] | string;
 }
 
 export const TablePage = () => {
@@ -172,7 +172,42 @@ export const TablePage = () => {
         type: "table",
         icon: "plus",
         action: (data: User) => {
-          setSource([...source, data]);
+          if (data.name) {
+            const [first, last] = (data.name as string).split(" ");
+            const user: User = {
+              ...data,
+              name: { first, last },
+              birthday: new Date(data.birthday),
+              balance: Number(data.balance),
+              tags: (data.tags as string).split(" ")
+            };
+            setSource([...source, user]);
+          }
+        }
+      },
+
+      {
+        name: "delete",
+        type: "row",
+        icon: "times",
+        action: (data: User) => {
+          let _users = source.filter(u => u._id !== data._id);
+          setSource(_users);
+        }
+      },
+      {
+        name: "edit",
+        type: "row",
+        icon: "edit",
+        action: (data: User) => {
+          const user: User = {
+            ...data,
+            birthday: new Date(data.birthday),
+            balance: Number(data.balance),
+            tags: (data.tags as string).split(" ")
+          };
+          let _users = source.filter(u => u._id !== user._id);
+          setSource([..._users, user]);
         }
       }
     ],
@@ -183,42 +218,36 @@ export const TablePage = () => {
         sort: true,
         sortObject: "name.first",
         width: "auto",
-        valuePrepareFunction: value => (
-          <span>
-            {value.first} {value.last}
-          </span>
-        )
+        valuePrepareFunction: (value: Name) => ` ${value.first} ${value.last}`
       },
       company: {
         title: "Company",
         width: "auto"
       },
       birthday: {
-        title:"Birthday",
-        format:"date",
+        title: "Birthday",
+        format: "date",
         width: "auto"
       },
       tags: {
         title: "Tags",
         sort: false,
         width: "1fr",
-        valuePrepareFunction: (value: string[]) => {
-          const tags = value.reduce((a, b) => `${a} ${b}`);
-          return <span>{tags}</span>;
-        }
+        valuePrepareFunction: (value: string | string[]) =>
+          typeof value !== "string"
+            ? (value as string[]).reduce((a, b) => `${a} ${b}`)
+            : (value as string)
       },
-      balance:{
-        title:"Balance",
-        format:"currency",
-        align:"right"
+      balance: {
+        title: "Balance",
+        format: "currency",
+        align: "right"
       },
       isActive: {
         title: "Active",
+        type: "checkbox",
         width: "50px",
         align: "center",
-        valuePrepareFunction: (value: boolean) => (
-          <Checkbox checked={value} locked={true}></Checkbox>
-        ),
         editor: {
           type: "checkbox"
         }
