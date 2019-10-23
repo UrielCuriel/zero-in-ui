@@ -3,8 +3,8 @@ import { string } from "prop-types";
 
 export type TableSettings<T> = {
   actions?: {
-    name: string;
-    type: "table" | "row";
+    name: "add" | "edit" | "selectionMultiple" | string;
+    type?: "table" | "row";
     icon?: IconProp;
     title?: string;
     action(data: T | T[]): any;
@@ -16,11 +16,12 @@ export type TableSettings<T> = {
   };
 };
 export type Column<T, K extends keyof T> = {
-  title?: string;
+  title: string;
   class?: string;
   width?: string;
   editable?: boolean;
   format?: "date" | "currency";
+  formatOptions?: Intl.DateTimeFormatOptions | Intl.NumberFormatOptions;
   align?: "center" | "left" | "right";
   renderComponent?: any;
   editor?: Editor | false;

@@ -5,124 +5,144 @@ import Checkbox from "../../lib/src/components/Forms/Checkbox";
 
 const data = [
   {
-    _id: "5daf967b85069b669ff12d70",
+    _id: "5db087f362d89231ba0cbc27",
+    isActive: true,
+    name: {
+      first: "Leblanc",
+      last: "Mckenzie"
+    },
+    company: "VELOS",
+    email: "leblanc.mckenzie@velos.org",
+    balance: 3277.07,
+    phone: "+1 (891) 552-3164",
+    birthday: new Date("Sat May 08 2004 21:15:08 GMT+0000 (UTC)"),
+    tags: ["excepteur", "veniam", "magna", "est", "incididunt"]
+  },
+  {
+    _id: "5db087f3ca14fc8456bc7b99",
     isActive: false,
     name: {
-      first: "Mary",
-      last: "Mcguire"
+      first: "Lillie",
+      last: "Spears"
     },
-    company: "ACRUEX",
-    email: "mary.mcguire@acruex.biz",
-    phone: "+1 (923) 486-3678",
-    tags: ["voluptate", "veniam", "exercitation", "ipsum", "duis"]
+    company: "BARKARAMA",
+    email: "lillie.spears@barkarama.us",
+    balance: 15863.35,
+    phone: "+1 (908) 414-2981",
+    birthday: new Date("Wed Nov 15 1995 09:26:48 GMT+0000 (UTC)"),
+    tags: ["eu", "labore", "elit", "adipisicing", "aliquip"]
   },
   {
-    _id: "5daf967b604ed9bb53264904",
+    _id: "5db087f304309eb2b556c20f",
     isActive: true,
     name: {
-      first: "Bell",
-      last: "Conrad"
+      first: "Dixie",
+      last: "Macias"
     },
-    company: "QUORDATE",
-    email: "bell.conrad@quordate.biz",
-    phone: "+1 (997) 464-3630",
-    tags: ["labore", "nisi", "esse", "commodo", "duis"]
+    company: "STROZEN",
+    email: "dixie.macias@strozen.biz",
+    balance: 9977.62,
+    phone: "+1 (869) 427-3644",
+    birthday: new Date("Tue Aug 28 1990 02:50:13 GMT+0000 (UTC)"),
+    tags: ["occaecat", "ex", "magna", "nisi", "eu"]
   },
   {
-    _id: "5daf967b48bb3ca80bdf5363",
+    _id: "5db087f364e5317077a45c30",
     isActive: false,
     name: {
-      first: "Fowler",
-      last: "Savage"
+      first: "Bauer",
+      last: "Hudson"
     },
-    company: "ZINCA",
-    email: "fowler.savage@zinca.ca",
-    phone: "+1 (939) 592-3920",
-    tags: ["consequat", "non", "non", "id", "aliquip"]
+    company: "CENTREE",
+    email: "bauer.hudson@centree.com",
+    balance: 29565.38,
+    phone: "+1 (921) 534-2612",
+    birthday: new Date("Mon Dec 06 1993 21:19:24 GMT+0000 (UTC)"),
+    tags: ["Lorem", "magna", "et", "commodo", "veniam"]
   },
   {
-    _id: "5daf967b91b0fa8bd4f2f2d5",
-    isActive: true,
-    name: {
-      first: "Andrea",
-      last: "Stephens"
-    },
-    company: "ZOARERE",
-    email: "andrea.stephens@zoarere.co.uk",
-    phone: "+1 (951) 432-2893",
-    tags: ["id", "officia", "sunt", "commodo", "aute"]
-  },
-  {
-    _id: "5daf967b9d9cdb08032fec2c",
-    isActive: true,
-    name: {
-      first: "Freeman",
-      last: "Mckay"
-    },
-    company: "GLOBOIL",
-    email: "freeman.mckay@globoil.io",
-    phone: "+1 (966) 499-3737",
-    tags: ["velit", "ipsum", "sit", "cillum", "voluptate"]
-  },
-  {
-    _id: "5daf967b739d24962af7bad4",
+    _id: "5db087f37da30fc3de63f537",
     isActive: false,
     name: {
-      first: "Pruitt",
-      last: "Kirkland"
+      first: "Decker",
+      last: "Guzman"
     },
-    company: "KOOGLE",
-    email: "pruitt.kirkland@koogle.name",
-    phone: "+1 (844) 543-3027",
-    tags: ["aliquip", "sint", "do", "et", "ea"]
+    company: "VERTON",
+    email: "decker.guzman@verton.tv",
+    balance: 28601.53,
+    phone: "+1 (824) 554-2263",
+    birthday: new Date("Wed Apr 04 2012 03:39:51 GMT+0000 (UTC)"),
+    tags: ["consequat", "ea", "id", "ex", "ullamco"]
   },
   {
-    _id: "5daf967bbd903b1e78573a58",
-    isActive: true,
-    name: {
-      first: "Gay",
-      last: "Howell"
-    },
-    company: "OLYMPIX",
-    email: "gay.howell@olympix.me",
-    phone: "+1 (926) 454-2017",
-    tags: ["elit", "nisi", "Lorem", "dolor", "est"]
-  },
-  {
-    _id: "5daf967b519853d7875cb48f",
-    isActive: true,
-    name: {
-      first: "Mack",
-      last: "Hinton"
-    },
-    company: "BOINK",
-    email: "mack.hinton@boink.tv",
-    phone: "+1 (855) 475-3585",
-    tags: ["exercitation", "veniam", "deserunt", "laborum", "excepteur"]
-  },
-  {
-    _id: "5daf967b1bbe4bffa34f84a4",
-    isActive: true,
-    name: {
-      first: "Lynda",
-      last: "Garza"
-    },
-    company: "AQUAMATE",
-    email: "lynda.garza@aquamate.net",
-    phone: "+1 (961) 564-2889",
-    tags: ["labore", "proident", "tempor", "adipisicing", "ullamco"]
-  },
-  {
-    _id: "5daf967b7a4ba16b35aafea5",
+    _id: "5db087f35b412047cab8847a",
     isActive: false,
     name: {
-      first: "Dale",
-      last: "Bryan"
+      first: "Douglas",
+      last: "Mcpherson"
     },
-    company: "MALATHION",
-    email: "dale.bryan@malathion.info",
-    phone: "+1 (801) 529-3066",
-    tags: ["magna", "in", "velit", "nostrud", "magna"]
+    company: "PROWASTE",
+    email: "douglas.mcpherson@prowaste.co.uk",
+    balance: 8920.27,
+    phone: "+1 (800) 419-2973",
+    birthday: new Date("Sun Dec 01 1974 17:53:44 GMT+0000 (UTC)"),
+    tags: ["deserunt", "anim", "cillum", "proident", "adipisicing"]
+  },
+  {
+    _id: "5db087f3ef9f666aa43377ce",
+    isActive: true,
+    name: {
+      first: "Claudia",
+      last: "Morrison"
+    },
+    company: "NURPLEX",
+    email: "claudia.morrison@nurplex.name",
+    balance: 25742.16,
+    phone: "+1 (870) 507-2575",
+    birthday: new Date("Mon Jul 09 2007 18:53:59 GMT+0000 (UTC)"),
+    tags: ["non", "culpa", "anim", "velit", "nulla"]
+  },
+  {
+    _id: "5db087f301ef5e18304fbbf4",
+    isActive: true,
+    name: {
+      first: "Carr",
+      last: "Greene"
+    },
+    company: "NAMEGEN",
+    email: "carr.greene@namegen.biz",
+    balance: 14047.71,
+    phone: "+1 (994) 526-2939",
+    birthday: new Date("Tue Dec 26 2017 13:23:56 GMT+0000 (UTC)"),
+    tags: ["magna", "ut", "aliquip", "esse", "labore"]
+  },
+  {
+    _id: "5db087f39aceb608f5760fc2",
+    isActive: false,
+    name: {
+      first: "Alison",
+      last: "Hopper"
+    },
+    company: "QUILTIGEN",
+    email: "alison.hopper@quiltigen.ca",
+    balance: 2204.91,
+    phone: "+1 (868) 409-3806",
+    birthday: new Date("Sat Oct 30 1993 18:55:58 GMT+0000 (UTC)"),
+    tags: ["enim", "aliquip", "nisi", "laboris", "anim"]
+  },
+  {
+    _id: "5db087f3039e03d134b99370",
+    isActive: false,
+    name: {
+      first: "Crane",
+      last: "Frederick"
+    },
+    company: "LUNCHPAD",
+    email: "crane.frederick@lunchpad.net",
+    balance: 22569.31,
+    phone: "+1 (941) 447-3830",
+    birthday: new Date("Mon Dec 15 1975 00:59:21 GMT+0000 (UTC)"),
+    tags: ["voluptate", "elit", "nostrud", "do", "quis"]
   }
 ];
 
@@ -138,6 +158,8 @@ export interface User {
   company: string;
   email: string;
   phone: string;
+  birthday: Date;
+  balance: number;
   tags: string[];
 }
 
@@ -171,16 +193,24 @@ export const TablePage = () => {
         title: "Company",
         width: "auto"
       },
+      birthday: {
+        title:"Birthday",
+        format:"date",
+        width: "auto"
+      },
       tags: {
         title: "Tags",
         sort: false,
-
-        align: "center",
         width: "1fr",
         valuePrepareFunction: (value: string[]) => {
           const tags = value.reduce((a, b) => `${a} ${b}`);
           return <span>{tags}</span>;
         }
+      },
+      balance:{
+        title:"Balance",
+        format:"currency",
+        align:"right"
       },
       isActive: {
         title: "Active",
