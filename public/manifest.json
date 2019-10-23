@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "short_name": "React App",
   "name": "Create React App Sample",
+=======
+  "short_name": "React Library",
+  "name": "Create React Library Sample",
+>>>>>>> feature/table
   "icons": [
     {
       "src": "favicon.ico",

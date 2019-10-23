@@ -1,0 +1,30 @@
+.topbar {
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-template-areas: "topbar-start topbar-center topbar-end";
+    grid-template-rows: var(--topbar-height);
+    grid-template-columns: repeat(3, auto);
+    column-gap: var(--gap);
+    padding-right: var(--gap);
+    padding-left: var(--gap);
+    align-items: center;
+    &-start-area {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: var(--gap);
+        justify-content: start;
+    }
+    &-center-area {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: var(--gap);
+        justify-content: center;
+    }
+    &-end-area {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: var(--gap);
+        justify-content: end;
+    }
+}

@@ -1,0 +1,9 @@
+.header {
+    display: grid;
+    align-content: center;
+    height: 40px;
+    width: 100%;
+    grid-template-columns: 1fr auto;
+    border-bottom: 2px solid var(--color-primary);
+    cursor: pointer;
+}
