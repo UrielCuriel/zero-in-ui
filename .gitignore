@@ -10,11 +10,7 @@
 
 # production
 /build
-<<<<<<< HEAD
-/dist
-=======
 /demo
->>>>>>> feature/table
 
 # misc
 .DS_Store
